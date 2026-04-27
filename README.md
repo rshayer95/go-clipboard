@@ -9,6 +9,10 @@ Supports Linux, macOS, Windows, and WSL environments.
 - Special support for copying from WSL to Windows clipboard
 - Simple, thread-safe API
 
+## Design
+
+Platform-specific implementations use Go build tags, so only the required clipboard backend is compiled into the final binary.
+
 ## Usage
 
 ```go
