@@ -52,6 +52,9 @@ func New() (Clipboard, error) {
 }
 
 func (c *linuxClipboard) Copy(text string) error {
+	if text == "" {
+		return fmt.Errorf("cannot copy empty text to clipboard")
+	}
 	c.mu.Lock()
 	defer c.mu.Unlock()
 	if c.bin == "" {
@@ -63,6 +66,9 @@ func (c *linuxClipboard) Copy(text string) error {
 }
 
 func (c *linuxClipboard) CopyToHost(text string) error {
+	if text == "" {
+		return fmt.Errorf("cannot copy empty text to clipboard")
+	}
 	c.mu.Lock()
 	defer c.mu.Unlock()
 	if c.wslBin == "" {

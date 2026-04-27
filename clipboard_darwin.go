@@ -42,6 +42,10 @@ Returns:
 	error: An error if the pbcopy command fails to execute, otherwise nil.
 */
 func (c *darwinClipboard) Copy(text string) error {
+	if text == "" {
+		return fmt.Errorf("cannot copy empty text to clipboard")
+	}
+
 	c.mu.Lock()
 	defer c.mu.Unlock()
 
@@ -51,5 +55,8 @@ func (c *darwinClipboard) Copy(text string) error {
 }
 
 func (c *darwinClipboard) CopyToHost(text string) error {
+	if text == "" {
+		return fmt.Errorf("cannot copy empty text to clipboard")
+	}
 	return fmt.Errorf("CopyToHost is not supported on macOS")
 }
