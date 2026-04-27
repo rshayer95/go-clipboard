@@ -8,6 +8,7 @@ Supports Linux, macOS, Windows, and WSL environments.
 - Copy text to the native clipboard on all major platforms
 - Special support for copying from WSL to Windows clipboard
 - Simple, thread-safe API
+- Empty strings are rejected automatically
 
 ## Design
 
